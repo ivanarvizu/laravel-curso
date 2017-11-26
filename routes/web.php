@@ -11,19 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 
-Route::get('/contacto', function() {
-   return "el peje es puto";
-});
+Route::get('/contacto', ["as" => "contactos", function() {
+    return view('contacto');
+}]);
 
-Route::get('saludos/{nombre?}', function($nombre = "Invitado"){
+Route::get('saludos/{nombre?}', ["as" => "saludos", function($nombre = "Invitado"){
 
     $consolas = array(
         'PS4', "Xbox One", "Wii U"
     );
 
     return view('saludo', compact('nombre', 'consolas'));
-})->where('nombre', "[A-Za-z]+");
+}])->where('nombre', "[A-Za-z]+");

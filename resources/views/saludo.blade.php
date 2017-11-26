@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+@extends('layout')
+
+@section('contenido')
 <h1>Saludos para {{$nombre}}</h1>
 
 @forelse($consolas as $consola)
@@ -13,5 +9,4 @@
     <p>No consolas</p>
 @endforelse
 
-</body>
-</html>
+@stop
