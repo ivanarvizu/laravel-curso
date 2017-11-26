@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/contacto', function() {
+   return "el peje es puto";
+});
+
+Route::get('saludos/{nombre?}', function($nombre = "Invitado"){
+
+    $consolas = array(
+        'PS4', "Xbox One", "Wii U"
+    );
+
+    return view('saludo', compact('nombre', 'consolas'));
+})->where('nombre', "[A-Za-z]+");
