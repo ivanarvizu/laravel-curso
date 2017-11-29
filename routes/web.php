@@ -13,15 +13,7 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 
-Route::get('/contacto', ["as" => "contactos", function() {
-    return view('contacto');
-}]);
+Route::get('contacto', ["as" => "contactos", 'uses' => 'PagesController@contactos']);
+Route::post('contacto', 'PagesController@do_contactos');
 
-Route::get('saludos/{nombre?}', ["as" => "saludos", function($nombre = "Invitado"){
-
-    $consolas = array(
-        'PS4', "Xbox One", "Wii U"
-    );
-
-    return view('saludo', compact('nombre', 'consolas'));
-}])->where('nombre', "[A-Za-z]+");
+Route::get('saludos/{nombre?}', ["as" => "saludos", 'uses' => 'PagesController@saludos' ])->where('nombre', "[A-Za-z]+");

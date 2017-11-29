@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Mi larasitio</title>
+
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .active {
+            text-decoration: none;
+            color: #1b6d85;
+        }
+    </style>
 </head>
 <body>
+{{request()->url()}}
 <header>
     <nav>
-        <a href="<?php echo route('home'); ?>">Inicio</a>
-        <a href="<?php echo route('saludos','lulz'); ?>">Saludos</a>
-        <a href="<?php echo route('contactos'); ?>">Contactos</a>
+        <a class="{{request()->is("/") ? "active": ""}}" href="{{ route('home') }}">Inicio</a>
+        <a class="{{request()->is("saludos*") ? "active": ""}}" href="{{ route('saludos','lulz') }}">Saludos</a>
+        <a class="{{request()->is("contacto") ? "active": ""}}" href="{{ route('contactos') }}">Contactos</a>
     </nav>
 </header>
 @yield('contenido')
