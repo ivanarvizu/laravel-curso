@@ -5,7 +5,7 @@
     @if(session()->has('info'))
         {{ session('info') }}
     @endif
-    <form action="contacto" method="post">
+    <form action="{{route('messages.store')}}" method="post">
         <input type="hidden" name="_token" value="{{  csrf_token() }}">
         <label for="nombre">
             Nombre prro
