@@ -15,12 +15,11 @@
     </style>
 </head>
 <body>
-{{request()->url()}}
 <header>
     <nav>
         <a class="{{request()->is("/") ? "active": ""}}" href="{{ route('home') }}">Inicio</a>
         <a class="{{request()->is("saludos*") ? "active": ""}}" href="{{ route('saludos','lulz') }}">Saludos</a>
-        <a class="{{request()->is("contacto") ? "active": ""}}" href="{{ route('contactos') }}">Contactos</a>
+        <a class="{{request()->is("mensajes*") ? "active": ""}}" href="{{ route('messages.create') }}">Contactos</a>
     </nav>
 </header>
 @yield('contenido')
