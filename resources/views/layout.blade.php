@@ -19,7 +19,8 @@
     <nav>
         <a class="{{request()->is("/") ? "active": ""}}" href="{{ route('home') }}">Inicio</a>
         <a class="{{request()->is("saludos*") ? "active": ""}}" href="{{ route('saludos','lulz') }}">Saludos</a>
-        <a class="{{request()->is("mensajes*") ? "active": ""}}" href="{{ route('messages.create') }}">Contactos</a>
+        <a class="{{request()->is("mensajes/create") ? "active": ""}}" href="{{ route('mensajes.create') }}">Contactos</a>
+        <a class="{{request()->is("mensajes") ? "active": ""}}" href="{{ route('mensajes.index') }}">Ver mensajes</a>
     </nav>
 </header>
 @yield('contenido')

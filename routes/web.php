@@ -18,6 +18,4 @@ Route::post('contacto', 'PagesController@do_contactos');
 
 Route::get('saludos/{nombre?}', ["as" => "saludos", 'uses' => 'PagesController@saludos' ])->where('nombre', "[A-Za-z]+");
 
-Route::get('mensajes/create', ["as" => "messages.create", "uses" => "MessagesController@create"]);
-Route::post('mensajes', ["as" => "messages.store", "uses" => "MessagesController@store"]);
-Route::get('mensajes', ["as" => "messages.index", "uses" => "MessagesController@index"]);
+Route::resource('mensajes', 'MessagesController');

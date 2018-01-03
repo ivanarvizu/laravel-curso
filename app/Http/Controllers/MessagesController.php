@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Messages;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
@@ -16,7 +17,9 @@ class MessagesController extends Controller
     public function index()
     {
         //
-        echo "10x por tu mensaje prro";
+        $messages = DB::table("messages")->get();
+
+        return view("messages.index", compact('messages'));
     }
 
     /**
@@ -49,7 +52,7 @@ class MessagesController extends Controller
             "updated_at" => Carbon::now()
         ]);
 
-        return redirect()->route("messages.index");
+        return redirect()->route("mensajes.index");
     }
 
     /**
@@ -61,6 +64,8 @@ class MessagesController extends Controller
     public function show($id)
     {
         //
+        $message = DB::table("messages")->where("id", $id)->first();
+        return view("messages.show", compact("message"));
     }
 
     /**
